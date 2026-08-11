@@ -9,6 +9,7 @@ Imports:
     dplyr (>= 1.1.4),
     magrittr (>= 2.0.3),
     rlang (>= 1.1.0),
+    purrr (>= 1.0.2),
     ROvis.utils,
     ROvis.table,
     ROvis.plotly,
@@ -32,3 +33,4 @@ Config/Roxygen2/markdown: TRUE
 Config/Roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
+Config/roxygen2/version: 8.0.0
