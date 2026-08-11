@@ -1,0 +1,65 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+# Computes test coverage with {covr} and draws a self-hosted shields.io badge
+# straight into README.md - no external coverage service involved.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+name: test-coverage
+
+permissions:
+  contents: write
+
+jobs:
+  test-coverage:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.AT_ROvis || secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::covr
+          needs: coverage
+
+      - name: Compute coverage and update badge
+        run: |
+          cov <- covr::package_coverage()
+          print(cov)
+          pct <- covr::percent_coverage(cov)
+
+          colour <- if (pct >= 90) "brightgreen" else
+            if (pct >= 75) "green" else
+            if (pct >= 50) "yellow" else
+            "red"
+
+          # shields.io static badge: /badge/<label>-<message>-<colour>, "%" URL-escaped as %25
+          badge_url <- sprintf("https://img.shields.io/badge/coverage-%.0f%%25-%s", pct, colour)
+
+          readme <- readLines("README.md")
+          i <- grep("img.shields.io/badge/coverage-", readme)
+          if (length(i) == 1) {
+            readme[i] <- sub(
+              "https://img\\.shields\\.io/badge/coverage-[^)\"]+",
+              badge_url,
+              readme[i]
+            )
+            writeLines(readme, "README.md")
+          } else {
+            warning("No coverage badge placeholder found in README.md; skipping badge update.")
+          }
+        shell: Rscript {0}
+
+      - name: Commit updated badge
+        if: github.event_name == 'push'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: update coverage badge [skip ci]"
+          file_pattern: README.md
