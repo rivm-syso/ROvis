@@ -7,10 +7,10 @@
 
   header <- rule(
     left = style_bold("Attached ROvis packages"),
-    right = paste0("ROvis ", as.character(packageVersion("ROvis")))
+    right = paste0("ROvis ", as.character(utils::packageVersion("ROvis")))
   )
 
-  versions <- map_chr(dara_pkgs, packageDescription, fields = "Version")
+  versions <- map_chr(dara_pkgs, utils::packageDescription, fields = "Version")
 
   packages <- paste0(
     col_green(cli::symbol$tick),
