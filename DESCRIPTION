@@ -28,7 +28,6 @@ Remotes:
     rivm-syso/ROvis.plotly,
     rivm-syso/ROvis.shiny,
     rivm-syso/ROvis.echarts
-
 VignetteBuilder: quarto
 Config/Roxygen2/markdown: TRUE
 Config/Roxygen2/version: 8.1.0
