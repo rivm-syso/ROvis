@@ -1,5 +1,4 @@
 .onAttach <- function(...) {
-
   dara_pkgs <- c("ROvis.utils", "ROvis.table", "ROvis.plotly", "ROvis.shiny", "ROvis.echarts", "ROvis.ggplot2")
 
   lapply(dara_pkgs, library, character.only = TRUE)
@@ -14,11 +13,15 @@
   versions <- map_chr(dara_pkgs, packageDescription, fields = "Version")
 
   packages <- paste0(
-    col_green(cli::symbol$tick), " ", col_blue(format(dara_pkgs)), "   ",
-    ansi_align(versions, max(ansi_nchar(versions))), " "
+    col_green(cli::symbol$tick),
+    " ",
+    col_blue(format(dara_pkgs)),
+    "   ",
+    ansi_align(versions, max(ansi_nchar(versions))),
+    " "
   )
 
   msg <- paste0(header, "\n", paste(packages, collapse = "\n"))
 
-  inform(message = msg,   class = "packageStartupMessage")
+  inform(message = msg, class = "packageStartupMessage")
 }
