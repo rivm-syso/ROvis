@@ -11,6 +11,21 @@
 ## Description
 ROvis is the umbrella package for the ROvis.* suite (ROvis.utils, ROvis.table, ROvis.plotly, ROvis.shiny, ROvis.echarts, ROvis.ggplot2), providing a single entry point for Rijksoverheid-styled data visualization in R.
 
+## Packages
+
+<p align="center">
+  <img src="man/figures/ROvis-family.png" width="500" alt="ROvis and its six companion packages" />
+</p>
+
+ROvis is home to six companion packages:
+
+- [ROvis.utils](https://github.com/rivm-syso/ROvis.utils)
+- [ROvis.table](https://github.com/rivm-syso/ROvis.table)
+- [ROvis.plotly](https://github.com/rivm-syso/ROvis.plotly)
+- [ROvis.shiny](https://github.com/rivm-syso/ROvis.shiny)
+- [ROvis.echarts](https://github.com/rivm-syso/ROvis.echarts)
+- [ROvis.ggplot2](https://github.com/rivm-syso/ROvis.ggplot2)
+
 ## Installation
 
 ```r
