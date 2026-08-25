@@ -4,8 +4,10 @@
 \name{ROvis-package}
 \alias{ROvis}
 \alias{ROvis-package}
-\title{ROvis: Rijksoverheid Visualisatie}
+\title{ROvis: Create data visualisations in Rijksoverheid style using a set of R packages}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 ROvis is an R package that provides tools to design graphs and reports in the Rijksoverheid style.
 }
 \author{
