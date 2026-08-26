@@ -2,7 +2,7 @@ Package: ROvis
 Title:  Create data visualisations in Rijksoverheid style using a set of R packages
 Version: 0.1.0
 Authors@R: person("ROvis team", email = "spin@rivm.nl", role = c("cre", "aut"))
-Description: ROvis is an R package that provides tools to design graphs and reports in the Rijksoverheid style.
+Description: Provides tools to design graphs and reports in the Rijksoverheid style.
 License: Apache License (>= 2)
 Imports:
     cli (>= 3.6.2),
@@ -34,4 +34,4 @@ VignetteBuilder: quarto
 Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
+Config/roxygen2/markdown: TRUE
