@@ -1,5 +1,5 @@
 # Daily aggregator: pulls the latest NEWS.md entry from each ROvis.* family
-# package and rebuilds vignettes/articles/family-release-notes.md, a single
+# package and rebuilds vignettes/articles/family-release-notes.qmd, a single
 # combined "what's new across the family" page for this repo's pkgdown site.
 #
 # Commits straight to the default branch (like the coverage-badge step in
@@ -46,7 +46,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add vignettes/articles/family-release-notes.md
+          git add vignettes/articles/family-release-notes.Rmd
           if git diff --cached --quiet; then
             echo "No changes to family release notes."
             exit 0

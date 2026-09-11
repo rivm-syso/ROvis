@@ -6,7 +6,7 @@
 set -euo pipefail
 
 SOURCE_DIR="${1:-.family-release-notes}"
-OUT_FILE="${2:-vignettes/articles/family-release-notes.md}"
+OUT_FILE="${2:-vignettes/articles/family-release-notes.qmd}"
 
 PACKAGES=(ROvis.utils ROvis.ggplot2 ROvis.plotly ROvis.echarts ROvis.table ROvis.shiny)
 
