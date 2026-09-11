@@ -26,6 +26,18 @@ get_version() {
   head -n1 "$1" 2>/dev/null | awk '{print $NF}'
 }
 
+# The family's NEWS.md headers use GitHub-style ":shortcode:" emoji, which
+# GitHub and pkgdown::build_news() render as real emoji but Quarto's default
+# markdown reader (used for vignettes/articles/*.qmd) does not - it leaves
+# the literal ":sparkles:" text as-is. Substituting here, once, means the
+# individual family repos never need to know or care about this.
+emojify() {
+  sed -e 's/:sparkles:/✨/g' \
+      -e 's/:hammer_and_wrench:/🛠️/g' \
+      -e 's/:bug:/🐛/g' \
+      -e 's/:coffin:/⚰️/g'
+}
+
 synced_at="$(date -u +"%Y-%m-%d %H:%M UTC")"
 
 mkdir -p "$(dirname "$OUT_FILE")"
@@ -59,4 +71,4 @@ mkdir -p "$(dirname "$OUT_FILE")"
       printf '%s\n' "$entry" | sed '1s/^# /## /'
     fi
   done
-} > "$OUT_FILE"
+} | emojify > "$OUT_FILE"

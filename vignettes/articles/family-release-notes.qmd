@@ -4,7 +4,7 @@ title: "Family release notes"
 
 Latest release notes across the ROvis family, refreshed daily.
 
-*Last synced: 2026-09-11 08:59 UTC*
+*Last synced: 2026-09-11 09:06 UTC*
 
 | Package | Latest version |
 |---|---|
@@ -20,7 +20,7 @@ Latest release notes across the ROvis family, refreshed daily.
 First release since `ROvis.utils` was split out of the `ROvis` monolith into its own
 package, and the repository moved from GitLab to GitHub.
 
-### :sparkles: Added
+### ✨ Added
 
 - Moved all utility functions from ROvis: `ro_check_if_font_available`, 
 `ro_color_categorical`, `ro_color_palette`, `ro_color_seq_named`, `ro_color_seq`,
@@ -29,19 +29,19 @@ package, and the repository moved from GitLab to GitHub.
 - Added community health files: `CONTRIBUTING.md`, `CONTRIBUTORS.md`, and issue and
 pull request templates.
 
-### :hammer_and_wrench: Changed
+### 🛠️ Changed
 
 - Migrated the repository from GitLab to GitHub (`rivm-syso/ROvis.utils`).
 - Replaced GitLab CI with a GitHub Actions workflow covering lint, R CMD check, test
 coverage, and pkgdown.
 
-### :bug: Fixed 
+### 🐛 Fixed 
 
-### :coffin: Deprecated
+### ⚰️ Deprecated
 
 ## ROvis.ggplot2 v0.1.0
 
-### :sparkles: Added
+### ✨ Added
 
 - Minimum R dependency is 4.5.0 (was 4.3.0).
 
@@ -53,13 +53,13 @@ coverage, and pkgdown.
 
 - Added vignettes on getting started with ROvis.ggplot2 and the RIVM style.
 
-### :hammer_and_wrench: Changed
+### 🛠️ Changed
 
 - Vignettes are now made with quarto instead of rmarkdown.
 
-### :bug: Fixed 
+### 🐛 Fixed 
 
-### :coffin: Deprecated
+### ⚰️ Deprecated
 
 - Removed gitlab-ci.yaml as the package has been moved to GitHub.
 
@@ -68,7 +68,7 @@ coverage, and pkgdown.
 First release since `ROvis.plotly` was split out of the `ROvis` monolith into its own
 package, and the repository moved from GitLab to GitHub.
 
-### :sparkles: Added
+### ✨ Added
 
 - Moved the plotly functions from ROvis: `ro_ply_add_theme`, `ro_ply_cursor`,
 `ro_ply_dim`, `ro_ply_disable_toolbar`, `ro_ply_focus_linechart`,
@@ -76,37 +76,37 @@ package, and the repository moved from GitLab to GitHub.
 `ro_ply_keyboard_nav_legend`, `ro_ply_keyboard_nav_linechart`,
 `ro_ply_keyboard_nav_trendline`, `ro_ply_legend_theme`, `ro_ply_theme`, `ro_ply_title`.
 
-### :hammer_and_wrench: Changed
+### 🛠️ Changed
 
 - Migrated the repository from GitLab to GitHub (`rivm-syso/ROvis.plotly`).
 
-### :bug: Fixed 
+### 🐛 Fixed 
 
-### :coffin: Deprecated
+### ⚰️ Deprecated
 
 ## ROvis.echarts v0.1.0
 
 First release since `ROvis.echarts` was split out of the `ROvis` monolith into its own
 package, and the repository moved from GitLab to GitHub.
 
-### :sparkles: Added
+### ✨ Added
 
 - Moved the echarts4r functions from ROvis: `ro_e_keyboard_nav`, `ro_e_theme`.
 
-### :hammer_and_wrench: Changed
+### 🛠️ Changed
 
 - Migrated the repository from GitLab to GitHub (`rivm-syso/ROvis.echarts`).
 
-### :bug: Fixed 
+### 🐛 Fixed 
 
-### :coffin: Deprecated
+### ⚰️ Deprecated
 
 ## ROvis.table v0.1.0
 
 First release since `ROvis.table` was split out of the `ROvis` monolith into its own
 package, and the repository moved from GitLab to GitHub.
 
-### :sparkles: Added
+### ✨ Added
 
 - `ro_gt_theme()`: RIVM-styled theme for `gt` tables.
 - `ro_dt_table()` and `ro_dt_theme()`: accessible, keyboard-navigable `DT` tables.
@@ -114,15 +114,15 @@ package, and the repository moved from GitLab to GitHub.
 - Added community health files: `CONTRIBUTING.md`, `CONTRIBUTORS.md`, and issue and
 pull request templates.
 
-### :hammer_and_wrench: Changed
+### 🛠️ Changed
 
 - Migrated the repository from GitLab to GitHub (`rivm-syso/ROvis.table`).
 - Replaced GitLab CI with a GitHub Actions workflow covering lint, R CMD check, test
 coverage, and pkgdown.
 
-### :bug: Fixed 
+### 🐛 Fixed 
 
-### :coffin: Deprecated
+### ⚰️ Deprecated
 - Removed the stray `.gitlab-ci.yml` left over from the pre-GitHub setup.
 
 ## ROvis.shiny v0.1.0
@@ -130,16 +130,16 @@ coverage, and pkgdown.
 First release since `ROvis.shiny` was split out of the `ROvis` monolith into its own
 package, and the repository moved from GitLab to GitHub.
 
-### :sparkles: Added
+### ✨ Added
 
 - Moved the Shiny module functions from ROvis: `ro_shiny_graph_mod_server`,
 `ro_shiny_graph_mod_ui`, `ro_shiny_graph_panel_server`, `ro_shiny_graph_panel_ui`,
 `ro_shiny_screenreader`.
 
-### :hammer_and_wrench: Changed
+### 🛠️ Changed
 
 - Migrated the repository from GitLab to GitHub (`rivm-syso/ROvis.shiny`).
 
-### :bug: Fixed 
+### 🐛 Fixed 
 
-### :coffin: Deprecated
+### ⚰️ Deprecated
