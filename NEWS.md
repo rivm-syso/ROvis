@@ -1,22 +1,16 @@
-List all changes in chronological order (new -> old ) to the package here. After release, write release notes and/or a blogpost for the package mailing list and/or pkg down website. This NEWS.md file will be visible in the pkg down website under News > Changelog.
+# ROvis v0.1.0
 
-We have chosen to include the headers "Added", "Changed", "Fixed", and "Deprecated". You are free to change these.
-
-GitLab issue numbers are mentioned where applicable.
-
-Sentences start with a capital letter and end with a point.
-
-Use '-' before each entry.
-
-Follow guidelines in documentation of pkgdown::build_news() for version headings. 
-
-# ROvis v0.0.0.9000
+First release since the original `ROvis` monolith was split into this umbrella package
+plus six standalone packages (`ROvis.utils`, `ROvis.ggplot2`, `ROvis.plotly`,
+`ROvis.echarts`, `ROvis.table`, `ROvis.shiny`), and the repository moved from GitLab to
+GitHub.
 
 ### :sparkles: Added
 
 ### :hammer_and_wrench: Changed
 
+- Migrated the repository from GitLab to GitHub (`rivm-syso/ROvis`).
+
 ### :bug: Fixed 
 
 ### :coffin: Deprecated
-
