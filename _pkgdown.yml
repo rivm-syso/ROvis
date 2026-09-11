@@ -4,7 +4,7 @@ template:
 
 navbar:
   structure:
-    left: [family, news]
+    left: [family, family_release_notes, news]
   components:
     family:
       text: Family
@@ -21,4 +21,7 @@ navbar:
         href: https://github.com/rivm-syso/ROvis.table
       - text: ROvis.shiny
         href: https://github.com/rivm-syso/ROvis.shiny
+    family_release_notes:
+      text: Family release notes
+      href: articles/family-release-notes.html
 

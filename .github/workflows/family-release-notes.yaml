@@ -1,0 +1,55 @@
+# Daily aggregator: pulls the latest NEWS.md entry from each ROvis.* family
+# package and rebuilds vignettes/articles/family-release-notes.md, a single
+# combined "what's new across the family" page for this repo's pkgdown site.
+#
+# Commits straight to the default branch (like the coverage-badge step in
+# ci.yaml commits straight to gh-pages) since this is generated content with
+# no human authorship, so nothing to review in a PR.
+name: family-release-notes
+
+on:
+  schedule:
+    # minute hour day month weekday -> 06:17 UTC daily
+    - cron: "17 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  update-family-release-notes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Fetch NEWS.md from the family packages
+        env:
+          GH_TOKEN: ${{ secrets.AT_ROvis || secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p .family-release-notes
+          for pkg in ROvis.utils ROvis.ggplot2 ROvis.plotly ROvis.echarts ROvis.table ROvis.shiny; do
+            curl -sSL --fail \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github.raw+json" \
+              "https://api.github.com/repos/rivm-syso/${pkg}/contents/NEWS.md?ref=develop" \
+              -o ".family-release-notes/${pkg}.md"
+          done
+
+      - name: Build combined family release notes page
+        run: .github/scripts/build-family-release-notes.sh
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add vignettes/articles/family-release-notes.md
+          if git diff --cached --quiet; then
+            echo "No changes to family release notes."
+            exit 0
+          fi
+          git commit -m "chore: update family release notes [skip ci]"
+          git push
