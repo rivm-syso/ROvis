@@ -199,7 +199,7 @@ the `min_version` argument to specify a minimum version.
 create automatic documentation in the `man` folder
 
 ## Authors and acknowledgment
-This R packages was created by ROvis team (spin@rivm.nl).
+This R package was created by ROvis team (spin@rivm.nl).
 
 ## License
 This package uses an Apache license.
