@@ -60,22 +60,131 @@ Loading `ROvis` attaches all six family packages (`ROvis.utils`, `ROvis.table`,
 `ROvis.plotly`, `ROvis.shiny`, `ROvis.echarts`, `ROvis.ggplot2`) and prints a startup
 message listing each one's version, so you always know exactly what you're working with.
 
+The examples below show some basic examples of those packages. For the full overview, please visit the packages themselves and read the README and vignettes.
+
+### ROvis.utils
+
+```r
+library(ROvis.utils)
+
+# Get the hex code for a named RIVM color
+ro_color("robijnrood")
+#> [1] "#ca005d"
+
+# Get the full categorical color palette
+ro_color_categorical()
+```
+
+### ROvis.table
+
+```r
+library(ROvis.table)
+
+# Apply the Rijksoverheid-styled gt theme to a data frame
+ro_gt_theme(head(mtcars, 5))
+```
+
+### ROvis.ggplot
+
+```r
+library(ROvis.ggplot2)
+
+data |>
+  filter(sex == "Women") |>
+  ggplot(aes(x = agegroup, y = n)) +
+  ro_gg_theme()
+```
+
+### ROvis.echarts
+
+```r
+library(ROvis.echarts)
+
+mtcars |>
+  e_charts(wt) |>
+  e_scatter(mpg) |>
+  ro_e_theme()
+```
+
+### ROvis.plotly
+
+```r
+library(ROvis.plotly)
+
+bar_data <- tibble::tibble(
+  Sex = c("Man", "Vrouw"),
+  n = c(1234, 1675)
+)
+
+# Use the  color function for Rijksoverheid / RIVM colors
+sex_colors <- c(
+  "Man" = ro_color("hemelblauw"),
+  "Vrouw" = ro_color("robijnrood")
+)
+
+# Create plotly bar chart
+fig <- plot_ly(
+  data = bar_data,
+  x = ~Sex,
+  y = ~n,
+  type = "bar",
+  color = ~Sex,
+  colors = sex_colors,
+  text = ~paste0(
+    "Geslacht: <b>", Sex, "</b>",
+    "<br>Aantal cases: <b>", 
+    format(round(n, 0), big.mark = ".", decimal.mark = ",", scientific = FALSE), "</b>"
+  ),
+  hoverinfo = "text"
+)
+
+# Apply Rijksoverheid / RIVM theme
+fig <- ro_ply_add_theme(fig, ro_ply_theme())
+```
+
+### ROvis.shiny
+
+```r
+library(ROvis.shiny)
+
+# Make a function for the plotly plot
+plotly_function <- function(example_data) {
+  plotly::plot_ly(
+    data = example_data,
+    x = ~`Aantal cases`,
+    y = ~`Leeftijdsgroep`,
+    color = ~Geslacht,
+    type = "bar",
+    orientation = "h"
+  )
+}
+
+# Make the ui and server of the app
+ui <- shiny::fluidPage(
+  useShinyjs(),
+  ro_shiny_graph_panel_ui("mod1", plotly::plotlyOutput)
+)
+
+server <- function(input, output, session) {
+  ro_shiny_graph_panel_server(
+    id = "mod1",
+    plot_render_fun = plotly::renderPlotly,
+    plot_data_fun = function() plotly_function(example_data),
+    data = example_data,
+    caption = "Aantal gevallen per leeftijdsgroep en geslacht"
+  )
+}
+
+shiny::shinyApp(ui = ui, server = server)
+```
+
 ## Support
 First point of contact for questions: ROvis team (spin@rivm.nl)
 
-## Roadmap
-- **CRAN release for the whole suite.** Until then, install from GitHub: `develop` carries
-  the latest work, `main` tracks the last stable release.
-- **A consistent first release across the family.** Currently all the family members are in development and are nearly ready for a first (public) release. 
-
 ## Contributing
-Contributions are welcome! See the Contributing guide and Code of Conduct linked in the
-sidebar, and use the issue templates (bug report, feature request, question) when opening
-an issue.
-
-`ROvis` itself is just the umbrella: it has no visualisation code of its own, so most
-contributions belong in the relevant family repo instead. Check out [the family](#the-family)
-above to find the right one.
+We welcome contributions and are always happy to see people help improve this package.
+If you would like to contribute, please first open an issue to describe the bug, feature, or proposed change. Once you are ready, submit a pull request linked to that issue.
+All contributions will be reviewed by the SPIN team before they are merged.
 
 ## Instructions for developers 
 
@@ -113,7 +222,7 @@ the `min_version` argument to specify a minimum version.
 create automatic documentation in the `man` folder
 
 ## Authors and acknowledgment
-This R packages was created by ROvis team (spin@rivm.nl).
+This R package was created by ROvis team (spin@rivm.nl).
 
 ## License
 Apache License 2.0 (see the full license linked in the sidebar). The same license applies
