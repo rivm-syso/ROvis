@@ -1,4 +1,27 @@
-url: ~
+url: https://rivm-syso.github.io/ROvis/
 template:
   bootstrap: 5
+
+navbar:
+  structure:
+    left: [family, family_release_notes, news]
+  components:
+    family:
+      text: Family
+      menu:
+      - text: ROvis.utils
+        href: https://github.com/rivm-syso/ROvis.utils
+      - text: ROvis.ggplot2
+        href: https://github.com/rivm-syso/ROvis.ggplot2
+      - text: ROvis.plotly
+        href: https://github.com/rivm-syso/ROvis.plotly
+      - text: ROvis.echarts
+        href: https://github.com/rivm-syso/ROvis.echarts
+      - text: ROvis.table
+        href: https://github.com/rivm-syso/ROvis.table
+      - text: ROvis.shiny
+        href: https://github.com/rivm-syso/ROvis.shiny
+    family_release_notes:
+      text: Family release notes
+      href: articles/family-release-notes.html
 
