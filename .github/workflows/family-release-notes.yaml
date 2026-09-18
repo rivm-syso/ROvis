@@ -46,7 +46,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add vignettes/articles/family-release-notes.Rmd
+          git add vignettes/articles/family-release-notes.qmd
           if git diff --cached --quiet; then
             echo "No changes to family release notes."
             exit 0
