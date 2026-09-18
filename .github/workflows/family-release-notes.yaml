@@ -35,7 +35,7 @@ jobs:
             curl -sSL --fail \
               -H "Authorization: Bearer $GH_TOKEN" \
               -H "Accept: application/vnd.github.raw+json" \
-              "https://api.github.com/repos/rivm-syso/${pkg}/contents/NEWS.md?ref=develop" \
+              "https://api.github.com/repos/rivm-syso/${pkg}/contents/NEWS.md" \
               -o ".family-release-notes/${pkg}.md"
           done
 
