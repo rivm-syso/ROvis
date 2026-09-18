@@ -38,8 +38,6 @@ emojify() {
       -e 's/:coffin:/⚰️/g'
 }
 
-synced_at="$(date -u +"%Y-%m-%d %H:%M UTC")"
-
 mkdir -p "$(dirname "$OUT_FILE")"
 
 {
@@ -48,8 +46,6 @@ mkdir -p "$(dirname "$OUT_FILE")"
   echo "---"
   echo
   echo "Latest release notes across the ROvis family, refreshed daily."
-  echo
-  echo "*Last synced: $synced_at*"
   echo
   echo "| Package | Latest version |"
   echo "|---|---|"
