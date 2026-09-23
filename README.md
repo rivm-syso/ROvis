@@ -225,6 +225,7 @@ create automatic documentation in the `man` folder
 This R package was created by ROvis team (spin@rivm.nl).
 
 ## License
-Apache License 2.0 (see the full license linked in the sidebar). The same license applies
+The code can be re-used under license [EUPL v.1.2](https://eupl.eu/1.2/en/) (see the full license linked in the sidebar). 
+The same license applies
 across the whole ROvis.* family, so licensing terms stay identical whichever package you
 install directly.
