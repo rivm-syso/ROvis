@@ -2,9 +2,10 @@
 # package and rebuilds vignettes/articles/family-release-notes.qmd, a single
 # combined "what's new across the family" page for this repo's pkgdown site.
 #
-# Commits straight to the default branch (like the coverage-badge step in
-# ci.yaml commits straight to gh-pages) since this is generated content with
-# no human authorship, so nothing to review in a PR.
+# Commits straight to the default branch since this is generated content with
+# no human authorship, so nothing to review in a PR. The branch ruleset
+# requires PRs, so checkout uses the DEPLOY_KEY, which is on the
+# ruleset's bypass list; GITHUB_TOKEN pushes would be rejected.
 name: family-release-notes
 
 on:
@@ -24,6 +25,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Fetch NEWS.md from the family packages
         env:
