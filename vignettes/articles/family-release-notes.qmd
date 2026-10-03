@@ -4,8 +4,6 @@ title: "Family release notes"
 
 Latest release notes across the ROvis family, refreshed daily.
 
-*Last synced: 2026-09-11 09:06 UTC*
-
 | Package | Latest version |
 |---|---|
 | ROvis.utils | v0.1.0 |
