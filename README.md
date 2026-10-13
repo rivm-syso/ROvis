@@ -45,8 +45,8 @@ Each package also works standalone if you only need one visualisation library. I
 
 ```r
 # Install from GitHub
-# install.packages("devtools")
-devtools::install_github("rivm-syso/ROvis")
+# install.packages("pak")
+pak::pak("rivm-syso/ROvis")
 ```
 
 
