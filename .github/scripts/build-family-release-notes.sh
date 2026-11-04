@@ -19,7 +19,7 @@ extract_latest_entry() {
   ' "$1"
 }
 
-# The heading line is "# <package> v<version>" - package names may contain
+# The heading line is "# <package> <version>" - package names may contain
 # dots, but the version is always the last space-separated field, so this
 # stays correct regardless.
 get_version() {
@@ -50,7 +50,8 @@ mkdir -p "$(dirname "$OUT_FILE")"
   echo "| Package | Latest version |"
   echo "|---|---|"
   for pkg in "${PACKAGES[@]}"; do
-    version="$(get_version "$SOURCE_DIR/$pkg.md")"
+    # No file if the package has no release yet
+    version="$(get_version "$SOURCE_DIR/$pkg.md" || true)"
     echo "| $pkg | ${version:-unknown} |"
   done
 

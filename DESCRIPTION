@@ -4,6 +4,8 @@ Version: 0.1.0
 Authors@R: person("ROvis team", email = "spin@rivm.nl", role = c("cre", "aut"))
 Description: Provides tools to design graphs and reports in the Rijksoverheid style.
 License: EUPL (>= 1.2)
+URL: https://rivm-syso.github.io/ROvis/, https://github.com/rivm-syso/ROvis
+BugReports: https://github.com/rivm-syso/ROvis/issues
 Imports:
     cli (>= 3.6.2),
     dplyr (>= 1.1.4),
@@ -22,12 +24,12 @@ Suggests:
     quarto (>= 1.4),
     testthat (>= 3.0.0)
 Remotes:
-    rivm-syso/ROvis.utils,
-    rivm-syso/ROvis.table,
-    rivm-syso/ROvis.ggplot2,
-    rivm-syso/ROvis.plotly,
-    rivm-syso/ROvis.shiny,
-    rivm-syso/ROvis.echarts
+    rivm-syso/ROvis.utils@*release,
+    rivm-syso/ROvis.table@*release,
+    rivm-syso/ROvis.ggplot2@*release,
+    rivm-syso/ROvis.plotly@*release,
+    rivm-syso/ROvis.shiny@*release,
+    rivm-syso/ROvis.echarts@*release
 Depends:
     R (>= 4.5.0)
 VignetteBuilder: quarto

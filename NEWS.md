@@ -1,4 +1,4 @@
-# ROvis v0.1.0
+# ROvis 0.1.0
 
 First release since the original `ROvis` monolith was split into this umbrella package
 plus six standalone packages (`ROvis.utils`, `ROvis.ggplot2`, `ROvis.plotly`,
