@@ -28,6 +28,8 @@ jobs:
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
+      # NEWS.md is read at the latest release tag, not the default branch: between
+      # releases main starts with the unreleased "(development version)" section.
       - name: Fetch NEWS.md from the family packages
         env:
           GH_TOKEN: ${{ secrets.AT_ROvis || secrets.GITHUB_TOKEN }}
@@ -35,11 +37,12 @@ jobs:
           set -euo pipefail
           mkdir -p .family-release-notes
           for pkg in ROvis.utils ROvis.ggplot2 ROvis.plotly ROvis.echarts ROvis.table ROvis.shiny; do
-            curl -sSL --fail \
-              -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github.raw+json" \
-              "https://api.github.com/repos/rivm-syso/${pkg}/contents/NEWS.md" \
-              -o ".family-release-notes/${pkg}.md"
+            # Latest GitHub release, e.g. v0.2.0; empty if the package has no release yet
+            tag=$(gh release view --repo "rivm-syso/${pkg}" --json tagName --jq .tagName 2>/dev/null || true)
+            if [ -n "$tag" ]; then
+              gh api "repos/rivm-syso/${pkg}/contents/NEWS.md?ref=${tag}" \
+                -H "Accept: application/vnd.github.raw+json" > ".family-release-notes/${pkg}.md"
+            fi
           done
 
       - name: Build combined family release notes page
