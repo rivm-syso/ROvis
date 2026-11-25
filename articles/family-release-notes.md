@@ -1,0 +1,42 @@
+# Family release notes
+
+Latest release notes across the ROvis family, refreshed daily.
+
+| Package       | Latest version |
+|---------------|----------------|
+| ROvis.utils   | version)       |
+| ROvis.ggplot2 | version)       |
+| ROvis.plotly  | version)       |
+| ROvis.echarts | v0.1.0         |
+| ROvis.table   | version)       |
+| ROvis.shiny   | version)       |
+
+## ROvis.utils (development version)
+
+## ROvis.ggplot2 (development version)
+
+## ROvis.plotly (development version)
+
+## ROvis.echarts v0.1.0
+
+First release since `ROvis.echarts` was split out of the `ROvis`
+monolith into its own package, and the repository moved from GitLab to
+GitHub.
+
+### ✨ Added
+
+- Moved the echarts4r functions from ROvis: `ro_e_keyboard_nav`,
+  `ro_e_theme`.
+
+### 🛠️ Changed
+
+- Migrated the repository from GitLab to GitHub
+  (`rivm-syso/ROvis.echarts`).
+
+### 🐛 Fixed
+
+### ⚰️ Deprecated
+
+## ROvis.table (development version)
+
+## ROvis.shiny (development version)

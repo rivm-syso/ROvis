@@ -1,0 +1,64 @@
+/* Hero band for the ROvis home page: merges the logo, title and tagline
+   into one gradient band instead of the default plain header with a hard
+   rule cutting across the hex logo. Colors are the real Rijkshuisstijl
+   values from ROvis.utils::ro_color() (lintblauw / hemelblauw / donkergeel)
+   so the hero matches the ROvis hex sticker rather than an invented palette. */
+
+/* Both halves share one horizontal (90deg) gradient with identical stops.
+   Because the angle only varies left-to-right, not top-to-bottom, the color
+   at any x-position is the same in both boxes regardless of their (different)
+   heights - so the seam between them lines up exactly. A diagonal angle here
+   would shift per-box (each box's diagonal is a different length), producing
+   a visible mismatch at the join. */
+.template-home .page-header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #154273 0%, #007bc7 100%);
+  border-bottom: none;
+  border-radius: 0.75rem 0.75rem 0 0;
+  padding: 1.75rem 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+/* soft glow accent, top-right - a nod to the umbrella/bubbles on the hex sticker */
+.template-home .page-header::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(255, 182, 18, 0.35) 0%, rgba(255, 182, 18, 0) 70%);
+  pointer-events: none;
+}
+
+.template-home .page-header h1 {
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+}
+
+.template-home .page-header img.logo {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+  margin-left: 24px;
+}
+
+/* the tagline paragraph immediately follows .page-header in the README -
+   fold it into the same band so logo + title + tagline read as one unit */
+.template-home .page-header + p {
+  background: linear-gradient(90deg, #154273 0%, #007bc7 100%);
+  color: #eaf4fb;
+  margin: 0;
+  padding: 0 2rem 1.5rem 2rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  /* shadow lives on the bottom half only, so it reads as cast by the whole
+     combined band instead of leaving a ridge at the join between the two */
+  box-shadow: 0 6px 20px rgba(1, 66, 115, 0.25);
+  position: relative;
+}
+
+.template-home .page-header + p em {
+  font-style: normal;
+  font-size: 1.05rem;
+}
