@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/rivm-syso/ROvis/blob/v0.1.0/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/rivm-syso/ROvis/blob/main/DESCRIPTION)
 
 ROvis team (2026). *ROvis: Create data visualisations in Rijksoverheid
 style using a set of R packages*. R package version 0.1.0,
