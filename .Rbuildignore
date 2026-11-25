@@ -8,3 +8,4 @@
 .lintr
 ^\.github$
 ^air\.toml$
+^vignettes/articles$
